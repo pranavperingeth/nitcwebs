@@ -1,0 +1,500 @@
+:root {
+  --navy: #1B3A5C;
+  --gold: #C8A951;
+  --white: #FFFFFF;
+  --light-gray: #F5F5F5;
+  --dark-text: #333333;
+  --text-muted: #666666;
+  --overlay: rgba(27, 58, 92, 0.85);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--dark-text);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: var(--navy);
+  color: var(--white);
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a:hover {
+  color: var(--gold);
+}
+
+.social-links svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+.nitc-home-btn {
+  background-color: var(--gold);
+  color: var(--navy);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.nitc-home-btn:hover {
+  background-color: #fff;
+  color: var(--navy);
+}
+
+/* Header & Nav */
+header {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-container img {
+  height: 60px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+  width: 100%;
+}
+
+/* Mobile Menu */
+.menu-toggle, #menu-checkbox {
+  display: none;
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--navy);
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0px; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  background: url('assets/images/about/banner.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--gold);
+  color: var(--navy);
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  background-color: var(--white);
+}
+
+/* Page Banner */
+.page-banner {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 60px 0 40px;
+  text-align: center;
+}
+
+.page-banner h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.breadcrumb a {
+  color: var(--gold);
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--navy);
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: var(--gold);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg-light {
+  background-color: var(--light-gray);
+}
+
+/* Vision & Mission */
+.vision-text {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-style: italic;
+  color: var(--dark-text);
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.mission-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s;
+  border-bottom: 4px solid var(--gold);
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+}
+
+.mission-card img {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.mission-card h3 {
+  color: var(--navy);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.mission-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* People Grid */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.person-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.person-card:hover {
+  transform: translateY(-5px);
+}
+
+.person-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-bottom: 3px solid var(--gold);
+}
+
+.person-info {
+  padding: 20px 15px;
+}
+
+.person-info h3 {
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+
+.person-info h3 a {
+  color: var(--navy);
+}
+
+.person-info h3 a:hover {
+  color: var(--gold);
+}
+
+.person-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Contact Cards */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.contact-card {
+  background: var(--white);
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+  border-top: 4px solid var(--navy);
+}
+
+.contact-card h3 {
+  color: var(--navy);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.contact-card p, .contact-card a {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.contact-card a:hover {
+  color: var(--gold);
+}
+
+/* Footer */
+footer {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 60px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3 {
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+  padding-left: 5px;
+}
+
+.footer-contact p {
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.copyright {
+  background-color: #122842;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .top-bar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s;
+    gap: 15px;
+    align-items: center;
+  }
+
+  #menu-checkbox:checked ~ .nav-links {
+    transform: scaleY(1);
+  }
+
+  #menu-checkbox:checked ~ .menu-toggle .hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+  }
+  
+  #menu-checkbox:checked ~ .menu-toggle .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #menu-checkbox:checked ~ .menu-toggle .hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+  }
+}
